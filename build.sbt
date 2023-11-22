@@ -30,6 +30,9 @@ lazy val two = (project in file(".mod-two"))
 lazy val root = project.in(file("."))
   .settings(
     publish / skip := true,
-    publishLocal / skip := true
+    publishLocal / skip := true,
+    resolvers ++= Seq(
+      "Akka library repository".at("https://repo.akka.io/maven"),
+    )
   )
   .aggregate(one, two)
